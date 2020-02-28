@@ -71,12 +71,75 @@
                   <!-- /.card-body -->
               </div>
             <!-- add new category end -->
+            <?php 
+
+              if(isset($_GET['edit'])){
+                $edit_cat =  $_GET['edit'];
+                $query = "SELECT * FROM category WHERE id='$edit_cat'";
+                $selected_cat = mysqli_query($db, $query);
+        
+                while($row = mysqli_fetch_assoc($selected_cat)){
+                    $cat_id     = $row['id'];
+                    $cat_name   = $row['name'];
+                    $cat_desc   = $row['description'];
+
+                ?>
+              <!-- Update category start-->
+              <div class="card card-primary collapsed-card">
+                  <div class="card-header">
+                      <h3 class="card-title">Update Category</h3>
+
+                      <div class="card-tools">
+                      <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i>
+                      </button>
+                      </div>
+                      <!-- /.card-tools -->
+                  </div>
+                  <!-- /.card-header -->
+                  <div class="card-body" style="display: none;">
+                      <form action="" method="POST">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" class="form-control" name="name" required="" autocomplete="off" value="<?php echo $cat_name; ?>">
+                        </div>
+                        <div class="form-group">
+                            <label for="description">Category Description</label>
+                            <textarea name="description" class="form-control" rows="5"><?php echo $cat_desc; ?></textarea>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" name="update_cat" value="Update Category" class="btn btn-primary btn-flat btn-sm">
+                        </div>
+                      </form> 
+                  </div>
+                  <!-- /.card-body -->
+              </div>
+            <!-- Update category end -->
+
+              <?php } } ?>
+
+             <?php
+              //add new catagory 
+              if(isset($_POST['update_cat'])){
+                  $name         = $_POST['name'];
+                  $description  =  $_POST['description'];
+
+                  $query = "UPDATE category SET name='$name',description='$description' WHERE id='$cat_id'";
+                  $add_cat = mysqli_query($db,$query);
+
+                  if($add_cat){
+                    header("Location:category.php");
+                  }else{
+                    die("Mysql Query Failed-".mysql_error($db));
+                  }
+              }
+            ?> 
+
           </div>
             <div class="col-lg-6">
                 <!--all category start-->
                 <div class="card card-primary collapsed-card">
                   <div class="card-header">
-                      <h3 class="card-title">ALL Catagory </h3>
+                      <h3 class="card-title">Update Catagory </h3>
 
                       <div class="card-tools">
                       <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i>
@@ -114,8 +177,8 @@
                                       <td>
                                           <div class="action-item">
                                               <ul>
-                                                  <li><a href="£"><i class="fa fa-edit"></i></a></li>
-                                                  <li><a data-toggle="modal" data-target="#delete" href="£"><i class="fa fa-trash"></i></a></li>
+                                                  <li><a href="category.php?edit=<?php echo $cat_id; ?>"><i class="fa fa-edit"></i></a></li>
+                                                  <li><a data-toggle="modal" data-target="#delete" href=""><i class="fa fa-trash"></i></a></li>
                                               </ul>
                                           </div>
                                       </td>
@@ -140,7 +203,7 @@
                                     <div class="modal-body">
                                       <div class="delete-opction">
                                           <ul>
-                                              <li><a class="btn btn-success btn-lg btn-flat" href="0">Yes</a></li>
+                                              <li><a class="btn btn-success btn-lg btn-flat" href="category.php?delete=<?php echo $cat_id; ?>">Yes</a></li>
                                               <li><button type="submit" class="btn btn-danger btn-lg btn-flat" data-dismiss="modal">No</button></li>
                                           </ul>
                                       </div>
