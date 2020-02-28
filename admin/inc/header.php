@@ -1,4 +1,5 @@
 <?php
+ob_start();
   include "inc/bd.php";
 ?>
 
@@ -19,6 +20,9 @@
   <link rel="stylesheet" href="dist/css/adminlte.min.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  <!--custom css file here-->
+  <link rel="stylesheet" type="text/css" href="dist/css/syle.css">
+  <!-- custom csss file here end-->
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
