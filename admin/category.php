@@ -71,6 +71,8 @@
                   <!-- /.card-body -->
               </div>
             <!-- add new category end -->
+
+
             <?php 
 
               if(isset($_GET['edit'])){
@@ -124,9 +126,9 @@
                   $description  =  $_POST['description'];
 
                   $query = "UPDATE category SET name='$name',description='$description' WHERE id='$cat_id'";
-                  $add_cat = mysqli_query($db,$query);
+                  $update_cat = mysqli_query($db,$query);
 
-                  if($add_cat){
+                  if($update_cat){
                     header("Location:category.php");
                   }else{
                     die("Mysql Query Failed-".mysql_error($db));
@@ -189,7 +191,8 @@
                           </table>
                           <!--category table end -->
 
-                          <!-- catagory delete modal start-->
+                          <!-- catagory delete modal start -->
+
                           <!-- Modal -->
                               <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
@@ -217,6 +220,23 @@
                   </div>
                 <!-- all category end -->
             </div>
+            <!--delete query start-->
+            <?php
+                if(isset($_GET['delete'])){
+                  $delete_cat = $_GET['delete'];
+                  $query = "DELETE FROM category WHERE id='$delete_cat'";
+                   $delete_cat = mysqli_query($db,$query);
+
+                  if($delete_cat){
+                    header("Location:category.php");
+                  }else{
+                    die("Mysql Query Failed-".mysql_error($db));
+                  }
+
+                }
+            ?>
+            <!--delete query end-->
+
         </div>
         <!-- /.row -->
       </div>
