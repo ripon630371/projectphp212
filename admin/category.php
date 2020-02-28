@@ -57,18 +57,18 @@
                                 $query = "SELECT * FROM `category`";
                                 $all_cat = mysqli_query($db, $query);
                                 while($row = mysqli_fetch_assoc($all_cat)){
-                                    $cat_id = $row['id'];
-                                    $cat_name = $row['name'];
-                                    $cat_desc = $row['description'];
-
-                                }?>
+                                    $cat_id     = $row['id'];
+                                    $cat_name   = $row['name'];
+                                    $cat_desc   = $row['description'];
+                                ?>
                                 <tr>
                                     <th scope="row">1</th>
                                     <td><?php echo $cat_name; ?></td>
                                     <td><?php echo  $cat_desc; ?></td>
                                     <td>@mdo</td>
                                 </tr>
-                            <?php ?>
+                                <?php } ?>
+                              
                             </tbody>
                         </table>
                         <!--category table end -->
