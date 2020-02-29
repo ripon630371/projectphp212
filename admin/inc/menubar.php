@@ -46,6 +46,31 @@
             </ul>
           </li>
         <!--all catefory menu end-->
+        <!--all user menu start-->
+        <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon far fa-gem"></i>
+              <p>
+                Mange All Users
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="viewAllUsers.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>View All Users</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Add Users</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+        <!--all user menu end-->
         <li class="nav-header">EXAMPLES</li>
 
         </ul>
