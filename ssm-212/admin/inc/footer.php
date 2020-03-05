@@ -1,5 +1,4 @@
-
-  <!-- Control Sidebar -->
+<!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
     <!-- Control sidebar content goes here -->
   </aside>
@@ -7,11 +6,8 @@
 
   <!-- Main Footer -->
   <footer class="main-footer">
-    <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong>
+    <strong>Copyright &copy; 2020 |</strong>
     All rights reserved.
-    <div class="float-right d-none d-sm-inline-block">
-      <b>Version</b> 3.0.3-pre
-    </div>
   </footer>
 </div>
 <!-- ./wrapper -->
@@ -29,8 +25,8 @@
 <script src="plugins/chart.js/Chart.min.js"></script>
 <script src="dist/js/demo.js"></script>
 <script src="dist/js/pages/dashboard3.js"></script>
-<?php 
-  ob_end_flush();
+<?php
+	ob_end_flush();
 ?>
 </body>
 </html>

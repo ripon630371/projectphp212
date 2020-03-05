@@ -1,6 +1,7 @@
 <?php
-ob_start();
-  include "inc/bd.php";
+  ob_start();
+  include "inc/db.php";
+  // include "inc/function.php";
 ?>
 
 <!DOCTYPE html>
@@ -18,12 +19,12 @@ ob_start();
   <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="dist/css/adminlte.min.css">
+  <!-- Theme Custom Style -->
+  <link rel="stylesheet" type="text/css" href="dist/css/style.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-  <!--custom css file here-->
-  <link rel="stylesheet" type="text/css" href="dist/css/syle.css">
-  <!-- custom csss file here end-->
 </head>
+
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
   <!-- Navbar -->
@@ -147,4 +148,7 @@ ob_start();
     </ul>
   </nav>
   <!-- /.navbar -->
-<?php include "inc/menubar.php"; ?>
+
+<?php
+  include "inc/menubar.php";
+?>

@@ -49,28 +49,31 @@
               </div>
 
               <div class="form-group">
-                <input type="text" name="role" placeholder="user role" class="form-control">
+                <label>Set New User Role</label>
+                <select name="role" class="form-control">
+                  <option>Please Select Your Role</option>
+                  <option value="0">Admin</option>
+                  <option value="1">Editor</option>
+                </select>
               </div>
 
               <div class="form-group">
                 <input type="submit" value="submit" name="adduser"class="btn btn-md btn-primary">
               </div>
-
+            
             </form>
-          </div>
+          </div>            
         </div><!-- /.row -->
 
-    <?php
+    <?php 
 
       if(isset($_POST['adduser'])){
-          $name       = $_POST['name'];
+          $name = mysqli_real_escape_string($db, $_POST['name']);
           $username   = $_POST['username'];
           $email      = $_POST['email'];
           $phone      = $_POST['phone'];
           $password   = $_POST['password'];
           $role       = $_POST['role'];
-
-          // $name = mysqli_real_escape_string($db,$name);
 
           $image       = $_FILES['image']['name'];
           $image_tmp   = $_FILES['image']['tmp_name'];
@@ -78,10 +81,11 @@
           // $extn = strtolower(end(explode(".", $image)));
 
           // $extensions= array("jpeg","jpg","png");
-
-          // if(in_array($extn,$extensions)=== false){
+      
+          // if(in_array($extn,$extensions) === false){
           //    header('Location: addNewUser.php');
           // }else{
+
               $random_number = rand(0,100000);
 
               $updatedimage = $random_number.$image;
@@ -89,27 +93,18 @@
               move_uploaded_file($image_tmp,"img/".$updatedimage);
 
               $password = sha1($password);
+              
+              $query = "INSERT INTO user (name,user_name,email,phone, password,image,user_role) VALUES('$name','$username','$email','$phone','$password','$updatedimage','$role')";
 
-              if(empty($name) || empty($username) || empty($email) || empty($phone) || empty($password) || empty($role)){
-                echo "empty";
-                header('Location: addUser.php');
+              $add_user = mysqli_query($db,$query);
+
+              if($add_user){
+                echo"ok";
+                header('Location: viewAllUsers.php');
               }else{
-                  $query = "INSERT INTO user (name,user_name,email,phone, password,image,user_role) VALUES('$name','$username','$email','$phone','$password','$updatedimage','$role')";
-
-                $add_user = mysqli_query($db,$query);
-
-                if($add_user){
-                  echo"ok";
-                  header('Location: viewAllUsers.php');
-                }else{
-                  die("Error: ".mysqli_error($db));
-                }
+                die("Error: ".mysqli_error($db));
               }
-          //}
-
-
-
-
+  
       }
 
     ?>
@@ -118,7 +113,7 @@
       </div><!-- /.container-fluid -->
     </div><!-- /.content -->
   </div><!-- /.content-wrapper -->
-
+  
 
 <?php
   include "inc/footer.php";

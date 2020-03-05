@@ -1,4 +1,6 @@
-<?php include "inc/header.php"; ?>
+<?php
+  include "inc/header.php";
+?>
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -272,4 +274,9 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-<?php include "inc/footer.php"?>
+
+<?php
+  include "inc/footer.php";
+?>
+
+  
