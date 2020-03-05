@@ -40,7 +40,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                
+
                 <?php
 
                   $query = "SELECT * FROM user";
@@ -62,7 +62,7 @@
                     <td><?php echo $user_name; ?></td>
                     <td><?php echo $email; ?></td>
                     <td><?php echo $phone; ?></td>
-                    <td><?php echo $image; ?></td>
+                    <td><img src="img/<?php echo $image;?>" height="50" width="50" alt=""></td>
                     <td><?php echo $user_role; ?></td>
                     <td>
                       <div class="action-item">
