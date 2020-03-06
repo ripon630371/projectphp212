@@ -1,0 +1,17 @@
+/* All Custom Design */
+/* Action Item */
+.action-item ul,
+.delete-option ul{
+	padding: 0;
+}
+.action-item ul li,
+.delete-option ul li{
+	list-style: none;
+	display: inline;
+}
+.action-item ul li .fa-edit{
+	color: #007bff;
+}
+.action-item ul li .fa-trash{
+	color: #dc3545;
+}
